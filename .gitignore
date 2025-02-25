@@ -1,0 +1,44 @@
+# Ignore system files
+
+**pycache**/
+\*.pyc
+.DS_Store
+
+# Ignore datasets
+
+data/
+!data/sample_data/ # Keep a small sample dataset
+
+# Ignore model 
+
+*.h5
+
+# Ignore Jupyter Notebook checkpoints
+
+notebooks/.ipynb_checkpoints/
+
+# Ignore virtual environments
+
+venv/
+.env/
+
+# Ignore logs
+
+logs/
+\*.log
+
+# Ignore copies
+
+notebook_copies/
+
+# Ignore output files
+
+results/
+
+# Ignore compressed files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
