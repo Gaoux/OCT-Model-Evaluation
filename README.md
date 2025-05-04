@@ -6,7 +6,7 @@ This repository is dedicated to testing pre-trained deep learning models for Ret
 
 We do not train the model in this repository; we solely use and assess it.
 
-## Dataset
+## 🧠 Retinal Disease Classification with OCT
 
 The dataset used for testing consists of labeled OCT images. Images are organized into folders corresponding to their respective categories, such as:
 
@@ -15,7 +15,16 @@ The dataset used for testing consists of labeled OCT images. Images are organize
 - `DRUSEN/`
 - `NORMAL/`
 
-Each folder contains test images for the respective class.
+![Representative OCT Images](../data/image.png)
+
+**Figure:** Representative Optical Coherence Tomography (OCT) images showing different retinal conditions:  
+- **CNV**: Choroidal Neovascularization  
+- **DME**: Diabetic Macular Edema  
+- **DRUSEN**: Associated with Age-Related Macular Degeneration  
+- **NORMAL**: Healthy retina  
+
+Retinal Optical Coherence Tomography (OCT) is an imaging technique used to capture high-resolution cross-sections of the retina in living patients. Approximately **30 million OCT scans** are performed each year. The interpretation of these images requires expert analysis and consumes considerable clinical time.  
+**Source:** [Kermany et al., 2018, *Cell*](http://www.cell.com/cell/fulltext/S0092-8674(18)30154-5)
 
 ## Installation
 
