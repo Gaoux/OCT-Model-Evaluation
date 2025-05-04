@@ -9,8 +9,8 @@
 data/
 !data/sample_data/ # Keep a small sample dataset
 
-# Ignore model 
-
+# Ignore models
+models/
 *.h5
 
 # Ignore Jupyter Notebook checkpoints
