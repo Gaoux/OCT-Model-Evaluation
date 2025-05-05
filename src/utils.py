@@ -99,11 +99,30 @@ def evaluate_classification_results(y_true, y_pred, output_dir, labels=LABELS):
     print("Classification Report:\n", classification_report(y_true, y_pred, target_names=labels))
     # Save confusion matrix
     conf_matrix = confusion_matrix(y_true, y_pred)
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels)
-    plt.xlabel("Predicted Label")
-    plt.ylabel("True Label")
-    plt.title("Confusion Matrix")
+    print("Confusion Matrix:\n", conf_matrix)
+    fig, ax = plt.subplots(figsize=(8, 6))
+    cax = ax.matshow(conf_matrix, cmap=plt.cm.Blues, alpha=0.9)  # lighter fill
+    # Add colorbar
+    fig.colorbar(cax)
+    # Set axis ticks and labels
+    ax.set_xticks(np.arange(len(labels)))
+    ax.set_yticks(np.arange(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_yticklabels(labels)
+    ax.set_xlabel("Predicted Label")
+    ax.set_ylabel("True Label")
+    ax.set_title("Confusion Matrix")
+    # Remove inner grid lines (keep only external borders)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    # Draw outer rectangle manually
+    ax.plot([-0.5, 3.5, 3.5, -0.5, -0.5], [-0.5, -0.5, 3.5, 3.5, -0.5], color='black', linewidth=1.5)
+    # Annotate each cell
+    for i in range(conf_matrix.shape[0]):
+        for j in range(conf_matrix.shape[1]):
+            ax.text(j, i, str(conf_matrix[i, j]),
+                va='center', ha='center', color='black', fontsize=12)
+    plt.tight_layout()
     plt.savefig(os.path.join(output_dir, "confusion_matrix_post.png"))
     plt.show()
 
